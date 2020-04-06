@@ -8,6 +8,9 @@
     <artifactId>sprbootproject</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
+    <modules>
+        <module>my-starter</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -24,9 +27,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-	<dependencies>
-
-	</dependencies>
 
 	<!-- 版本说明：这里统一管理依赖的版本号,子项目的可以写在子项目里，因为子项目可能也是父子多模块项目 -->
     <dependencyManagement>

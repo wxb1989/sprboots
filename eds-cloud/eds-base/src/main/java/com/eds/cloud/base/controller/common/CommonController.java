@@ -1,4 +1,4 @@
-package com.eds.cloud.business.controller.common;
+package com.eds.cloud.base.controller.common;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang.StringUtils;

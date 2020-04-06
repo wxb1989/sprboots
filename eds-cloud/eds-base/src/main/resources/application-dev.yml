@@ -1,5 +1,5 @@
 server:
-  port: 18080
+  port: 28080
 
 spring:
   datasource:
@@ -20,11 +20,6 @@ spring:
     livereload:
       enabled: true
 
-  cloud:
-    sentinel:
-      transport:
-        dashboard: localhost:8081
-
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 5  # 心跳检测检测与续约时间
@@ -37,7 +32,7 @@ eureka:
       enabled: true
     serviceUrl:
       defaultZone: http://YG0475:4c1a09@localhost:8888/eureka/
-    enabled: false
+    enabled: true
 
 
 logging:

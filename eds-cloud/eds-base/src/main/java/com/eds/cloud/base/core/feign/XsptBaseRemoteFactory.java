@@ -1,4 +1,4 @@
-package com.eds.cloud.business.core.feign;
+package com.eds.cloud.base.core.feign;
 
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.eds.cloud.business.core.config;
+package com.eds.cloud.base.core.config;
 
 import com.netflix.hystrix.strategy.HystrixPlugins;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;

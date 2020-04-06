@@ -1,7 +1,7 @@
-package com.eds.cloud.base.core.feign;
+package com.eds.cloud.bussiness.core.feign;
 
 import com.alibaba.fastjson.JSONObject;
-import com.eds.cloud.base.core.config.FeignMultipartSupportConfiguration;
+import com.eds.cloud.bussiness.core.config.FeignMultipartSupportConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

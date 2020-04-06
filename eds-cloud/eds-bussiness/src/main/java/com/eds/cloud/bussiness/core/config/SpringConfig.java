@@ -1,6 +1,8 @@
 package com.eds.cloud.base.core.config;
 
 import feign.RequestInterceptor;
+import feign.codec.Encoder;
+import feign.form.spring.SpringFormEncoder;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -55,7 +57,10 @@ public class SpringConfig   {
         restTemplate.getMessageConverters().set(1, new StringHttpMessageConverter(StandardCharsets.UTF_8));
         return restTemplate;
     }
-
+    @Bean
+    public Encoder feignFormEncoder() {
+        return new SpringFormEncoder();
+    }
 
 
     @Bean

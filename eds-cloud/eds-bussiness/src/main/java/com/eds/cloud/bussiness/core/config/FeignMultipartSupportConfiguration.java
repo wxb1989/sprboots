@@ -1,5 +1,6 @@
-package com.eds.cloud.base.core.config;
+package com.eds.cloud.bussiness.core.config;
 
+import com.eds.cloud.base.core.config.FeignHystrixConcurrencyStrategy;
 import com.netflix.hystrix.strategy.HystrixPlugins;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 import com.netflix.hystrix.strategy.eventnotifier.HystrixEventNotifier;

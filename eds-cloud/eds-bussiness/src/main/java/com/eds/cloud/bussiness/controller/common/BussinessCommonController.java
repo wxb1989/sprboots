@@ -1,4 +1,4 @@
-package com.eds.cloud.base.controller.common;
+package com.eds.cloud.bussiness.controller.common;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang.StringUtils;
@@ -31,7 +31,7 @@ import java.util.*;
  * @create 2019-12-03 9:11
  **/
 @RestController
-public class CommonController {
+public class BussinessCommonController {
 
     @Autowired
     private DiscoveryClient discoveryClient;
@@ -40,12 +40,13 @@ public class CommonController {
     @LoadBalanced
     private RestTemplate loadBalanced;
 
-    @RequestMapping(value = "/apis/common/callService")
+    @RequestMapping(value = "/apis/business/common/callService")
     @ResponseBody
     public Object callService(@RequestParam String apiServiceId, @RequestParam String apiPath, HttpServletRequest request) throws URISyntaxException {
         Map map = new HashMap(6);
         List<String> services = discoveryClient.getServices();
-        if (!services.contains(apiServiceId)) {
+        try {
+            if (!services.contains(apiServiceId)) {
             map.put("code", "9001");
             map.put("msg", "service not exist!");
             return map;
@@ -77,7 +78,6 @@ public class CommonController {
             });
             uriBuilder.setParameters(list);
         }
-        try {
             String result = loadBalanced.exchange(uriBuilder.build(), Objects.requireNonNull(HttpMethod.resolve(method.toUpperCase())), entity, String.class).getBody();
             return JSON.parse(result);
         } catch (Exception e) {

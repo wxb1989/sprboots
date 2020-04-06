@@ -13,7 +13,6 @@
     <modules>
         <module>eds-register-server</module>
         <module>eds-bussiness</module>
-        <module>eds-base</module>
     </modules>
 
     <name>eds-cloud-main-project</name>

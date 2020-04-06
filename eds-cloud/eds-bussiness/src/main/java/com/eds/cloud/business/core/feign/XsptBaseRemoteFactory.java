@@ -1,4 +1,4 @@
-package com.eds.cloud.base.core.feign;
+package com.eds.cloud.business.core.feign;
 
 import com.alibaba.fastjson.JSONObject;
 import feign.hystrix.FallbackFactory;

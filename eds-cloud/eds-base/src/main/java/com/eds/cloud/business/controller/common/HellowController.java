@@ -1,4 +1,4 @@
-package com.eds.cloud.base.controller.common;
+package com.eds.cloud.business.controller.common;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

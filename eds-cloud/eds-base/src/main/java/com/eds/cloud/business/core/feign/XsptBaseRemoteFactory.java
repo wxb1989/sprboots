@@ -1,12 +1,7 @@
-package com.eds.cloud.base.core.feign;
+package com.eds.cloud.business.core.feign;
 
-import com.alibaba.fastjson.JSONObject;
 import feign.hystrix.FallbackFactory;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
 
 /**
  * @author

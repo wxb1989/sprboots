@@ -1,4 +1,4 @@
-package com.eds.cloud.base.core.config;
+package com.eds.cloud.business.core.config;
 
 import feign.RequestInterceptor;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
@@ -83,9 +83,12 @@ public class SpringConfig   {
      */
     @Bean
     public CorsFilter corsFilter() {
+
+
+
         CorsConfiguration config = new CorsConfiguration();
-        List<String> allowedHeaders = Arrays.asList("x-auth-token", "content-type", "X-Requested-With", "XMLHttpRequest");
-        List<String> exposedHeaders = Arrays.asList("x-auth-token", "content-type", "X-Requested-With", "XMLHttpRequest");
+        List<String> allowedHeaders = Arrays.asList("Content-Type","x-auth-token","accept","Origin","Access-Control-Request-Headers","Access-Control-Request-Method",  "X-Requested-With", "XMLHttpRequest");
+        List<String> exposedHeaders = Arrays.asList("Content-Type","x-auth-token","accept","Origin","Access-Control-Request-Headers","Access-Control-Request-Method",  "X-Requested-With", "XMLHttpRequest");
         List<String> allowedMethods = Arrays.asList("POST", "GET", "DELETE", "PUT", "OPTIONS");
         List<String> allowedOrigins = Arrays.asList("*");
 

@@ -1,6 +1,6 @@
-package com.eds.cloud.base.core.feign;
+package com.eds.cloud.business.core.feign;
 
-import com.eds.cloud.base.core.config.FeignMultipartSupportConfiguration;
+import com.eds.cloud.business.core.config.FeignMultipartSupportConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 
 @FeignClient(name = "eds-business", configuration = FeignMultipartSupportConfiguration.class,

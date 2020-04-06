@@ -1,4 +1,4 @@
-package com.eds.cloud.base.core.config;
+package com.eds.cloud.business.core.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

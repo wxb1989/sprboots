@@ -1,4 +1,4 @@
-package com.eds.cloud.base.core.config;
+package com.eds.cloud.business.core.config;
 
 import feign.RequestInterceptor;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;

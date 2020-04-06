@@ -11,6 +11,7 @@
     <modules>
         <module>my-starter</module>
         <module>eds-cloud</module>
+        <module>eds-base</module>
     </modules>
 
     <parent>
@@ -20,13 +21,13 @@
         <relativePath/>
     </parent>
 
-    <properties>
+   <!-- <properties>
         <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.RC2</spring-cloud.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+    </properties>-->
 
 
 	<!-- 版本说明：这里统一管理依赖的版本号,子项目的可以写在子项目里，因为子项目可能也是父子多模块项目 -->

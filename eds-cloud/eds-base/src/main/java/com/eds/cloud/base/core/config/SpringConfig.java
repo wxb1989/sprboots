@@ -1,5 +1,7 @@
 package com.eds.cloud.base.core.config;
 
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RoundRobinRule;
 import feign.RequestInterceptor;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
@@ -49,7 +51,16 @@ public class SpringConfig {
         restTemplate.getMessageConverters().set(1, new StringHttpMessageConverter(StandardCharsets.UTF_8));
         return restTemplate;
     }
+    /**
+     * 使用LoadBalanced RestTemplate 时可以修改默认的策略
+     * @return
+     */
+    @Bean
+    public IRule myRule() {
+        return new RoundRobinRule();
+    }
 
+    /*
     @Primary
     @Bean
     RestTemplate restTemplate() {
@@ -57,7 +68,7 @@ public class SpringConfig {
         restTemplate.getMessageConverters().set(1, new StringHttpMessageConverter(StandardCharsets.UTF_8));
         return restTemplate;
     }
-
+*/
 
     @Bean
     public RequestInterceptor headerInterceptor() {

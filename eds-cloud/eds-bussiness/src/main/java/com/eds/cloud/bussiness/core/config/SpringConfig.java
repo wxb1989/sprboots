@@ -2,6 +2,8 @@ package com.eds.cloud.bussiness.core.config;
 
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RoundRobinRule;
 import feign.RequestInterceptor;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
@@ -54,13 +56,28 @@ public class SpringConfig   {
         return restTemplate;
     }
 
-    @Primary
+    /**
+     * 使用LoadBalanced RestTemplate 时可以修改默认的策略
+     * @return
+     */
+    @Bean
+    public IRule myRule() {
+        return new RoundRobinRule();
+    }
+
+    /**
+     * 如果项目里没有用到这个就不用配置
+     * @return
+
     @Bean
     RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().set(1, fastJsonHttpMessageConverters());
         return restTemplate;
     }
+     */
+
+
     /**
      * 使用fastjson做为json的解析器
      * @return
@@ -74,12 +91,6 @@ public class SpringConfig   {
         HttpMessageConverter<?> converter = fastConverter;
         return  converter;
     }
-
-    @Bean
-    public Encoder feignFormEncoder() {
-        return new SpringFormEncoder();
-    }
-
 
     @Bean
     public RequestInterceptor headerInterceptor() {

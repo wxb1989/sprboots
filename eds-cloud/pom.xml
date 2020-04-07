@@ -13,6 +13,7 @@
     <modules>
         <module>eds-register-server</module>
         <module>eds-bussiness</module>
+        <module>eds-base</module>
     </modules>
 
     <name>eds-cloud-main-project</name>
@@ -85,6 +86,7 @@
         <!--Spring Cloud 服务注册组件-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+<!--            <artifactId>spring-cloud-netflix-eureka-server</artifactId>-->
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
         <!--Spring Cloud 服务调用feign组件-->

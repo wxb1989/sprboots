@@ -11,13 +11,13 @@
     <modules>
         <module>my-starter</module>
         <module>eds-cloud</module>
-        <module>eds-base</module>
+
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.1.RELEASE</version>
+        <version>2.2.6.RELEASE</version>
         <relativePath/>
     </parent>
 

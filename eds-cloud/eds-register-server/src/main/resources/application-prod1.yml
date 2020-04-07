@@ -1,8 +1,7 @@
+server:
+  port: 8090
+
 spring:
-  profiles:
-    active: prod1
-  application:
-    name: eureka-server
   #  datasource:
   #    url: jdbc:mysql://10.30.50.49:3306/cxjk?useUnicode=true&characterEncoding=utf-8&useSSL=true
   #    username: cxjk_safe
@@ -32,7 +31,7 @@ eureka:
   server:
     enable-self-preservation: true
     eviction-interval-timer-in-ms: 3000
-    response-cache-update-interval-ms: 10000
+    response-cache-update-interval-ms: 4000
     response-cache-auto-expiration-in-seconds: 180
   instance:
     hostname: eureka1
@@ -47,5 +46,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
 
-server:
-  port: 8090
+

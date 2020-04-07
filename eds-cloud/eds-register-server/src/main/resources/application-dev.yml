@@ -3,6 +3,7 @@ server:
 
 eureka:
   server:
+    #自我保护机制关闭
     enable-self-preservation: false
     eviction-interval-timer-in-ms: 3000
     response-cache-update-interval-ms: 10000

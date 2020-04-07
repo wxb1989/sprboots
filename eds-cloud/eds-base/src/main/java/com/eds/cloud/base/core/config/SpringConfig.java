@@ -1,17 +1,13 @@
-package com.eds.cloud.bussiness.core.config;
+package com.eds.cloud.base.core.config;
 
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import feign.RequestInterceptor;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
-import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.util.unit.DataSize;
 import org.springframework.util.unit.DataUnit;
@@ -44,13 +40,13 @@ registry.addMapping("/**")
 }
  */
 @Configuration
-public class SpringConfig   {
+public class SpringConfig {
 
     @LoadBalanced
     @Bean
     RestTemplate loadBalanced() {
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().set(1, fastJsonHttpMessageConverters());
+        restTemplate.getMessageConverters().set(1, new StringHttpMessageConverter(StandardCharsets.UTF_8));
         return restTemplate;
     }
 
@@ -58,26 +54,8 @@ public class SpringConfig   {
     @Bean
     RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().set(1, fastJsonHttpMessageConverters());
+        restTemplate.getMessageConverters().set(1, new StringHttpMessageConverter(StandardCharsets.UTF_8));
         return restTemplate;
-    }
-    /**
-     * 使用fastjson做为json的解析器
-     * @return
-     */
-    @Bean
-    public HttpMessageConverter<?> fastJsonHttpMessageConverters() {
-        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
-        FastJsonConfig fastJsonConfig = new FastJsonConfig();
-        //  fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
-        fastConverter.setFastJsonConfig(fastJsonConfig);
-        HttpMessageConverter<?> converter = fastConverter;
-        return  converter;
-    }
-
-    @Bean
-    public Encoder feignFormEncoder() {
-        return new SpringFormEncoder();
     }
 
 

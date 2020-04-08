@@ -23,11 +23,12 @@ boot:
 
 eureka:
   instance:
+    #自我保护机制关闭
+    enableSelfPreservation: false
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
     instance-id: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
     prefer-ip-address: true
-    registryFetchIntervalSeconds: 5
   client:
     registryFetchIntervalSeconds: 15
     serviceUrl:

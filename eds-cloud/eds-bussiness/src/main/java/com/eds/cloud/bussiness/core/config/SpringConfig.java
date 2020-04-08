@@ -1,20 +1,12 @@
 package com.eds.cloud.bussiness.core.config;
 
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RoundRobinRule;
 import feign.RequestInterceptor;
-import feign.codec.Encoder;
-import feign.form.spring.SpringFormEncoder;
-import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.openfeign.support.SpringEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.util.unit.DataSize;
 import org.springframework.util.unit.DataUnit;
@@ -102,6 +94,7 @@ public class SpringConfig   {
         configSource.registerCorsConfiguration("/**", config);
         return new CorsFilter(configSource);
     }
+
 
     /**
      如果项目里没有用到这个就不用配置

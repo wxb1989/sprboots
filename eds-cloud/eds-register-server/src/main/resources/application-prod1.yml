@@ -28,15 +28,19 @@ management:
         include: "*"
 
 eureka:
-  server:
-    enable-self-preservation: true
-    eviction-interval-timer-in-ms: 3000
-    response-cache-update-interval-ms: 4000
-    response-cache-auto-expiration-in-seconds: 180
+  #自我保护机制关闭
+  enableSelfPreservation: false
+  evictionIntervalTimerInMs: 3000
+  useReadOnlyResponseCache: false
+  response-cache-update-interval-ms: 10000
+  response-cache-auto-expiration-in-seconds: 180
+  leaseRenewalIntervalInSeconds: 5
+  leaseExpirationDurationInSeconds: 10
+  peer-node-read-timeout-ms: 1200
   instance:
     hostname: eureka1
-    lease-expiration-duration-in-seconds: 20
-    lease-renewal-interval-in-seconds: 10
+    leaseRenewalIntervalInSeconds: 20
+    leaseExpirationDurationInSeconds: 90
     instance-id: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
     prefer-ip-address: true
   client:

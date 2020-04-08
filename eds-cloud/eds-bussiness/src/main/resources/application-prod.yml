@@ -14,14 +14,11 @@ spring:
       minimumIdle: 50
       maximumPoolSize: 100
       connectionTestQuery: select 1
-  boot:
-    admin:
-      client:
-        url: http://10.30.50.146:8082
-  mvc:
-    view:
-      prefix: /
-      suffix: .html
+
+boot:
+  admin:
+    client:
+      url: http://10.30.50.146:8082
 
 
 eureka:
@@ -30,6 +27,7 @@ eureka:
     lease-expiration-duration-in-seconds: 30
     instance-id: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
     prefer-ip-address: true
+    registryFetchIntervalSeconds: 5
   client:
     registryFetchIntervalSeconds: 15
     serviceUrl:
@@ -53,22 +51,19 @@ logging:
   level:
     root: info
 
-
 ribbon:
-  #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #配置规则 随机
-  #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #配置规则 轮询
-  #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule #配置规则 重试
-  #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #配置规则 响应时间权重
   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.BestAvailableRule #配置规则 最空闲连接策略
   ConnectTimeout: 10 #请求连接超时时间
   ReadTimeout: 0 #请求处理的超时时间
   MaxAutoRetries: 1 #对当前实例的重试次数
   MaxAutoRetriesNextServer: 2 #切换实例的重试次数
   OkToRetryOnAllOperations: false #对所有请求都进行重试默认是false
+  ServerListRefreshInterval: 2000 #ribbon缓存时间
 
 feign:
   hystrix:
     enabled: true
+
 hystrix:
   command:
     default:
@@ -79,8 +74,6 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 10000
-
-
 
 properties:
   filepath: /mnt/program/apache-tomcat-8.5.32-business/webapps/tmpfile

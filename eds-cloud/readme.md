@@ -18,7 +18,8 @@
      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #配置规则 轮询
      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule #配置规则 重试
      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #配置规则 响应时间权重
- 
+     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.BestAvailableRule #配置规则 最空闲连接策略
+     
  #ribbon局部服务设置每个fegin的调用端都可以配置一个
     service-id:    #例如eds-base                                                  # 服务ID
          ribbon:

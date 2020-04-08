@@ -14,15 +14,11 @@ spring:
       minimumIdle: 50
       maximumPoolSize: 100
       connectionTestQuery: select 1
-  boot:
+
+boot:
     admin:
       client:
         url: http://10.30.50.146:8082
-  mvc:
-    view:
-      prefix: /
-      suffix: .html
-
 
 eureka:
   instance:
@@ -30,6 +26,7 @@ eureka:
     lease-expiration-duration-in-seconds: 3
     instance-id: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
     prefer-ip-address: true
+    registryFetchIntervalSeconds: 5
   client:
     registryFetchIntervalSeconds: 15
     serviceUrl:
@@ -53,17 +50,18 @@ logging:
   level:
     root: info
 
-
 ribbon:
   ConnectTimeout: 60000
   ReadTimeout: 60000
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 0
   OkToRetryOnAllOperations: false
+  ServerListRefreshInterval: 2000 #ribbon缓存时间
 
 feign:
   hystrix:
     enabled: true
+
 hystrix:
   command:
     default:
@@ -74,8 +72,6 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 15000
-
-
 
 properties:
   filepath: /mnt/program/apache-tomcat-8.5.32-business/webapps/tmpfile

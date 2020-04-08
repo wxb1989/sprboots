@@ -20,12 +20,15 @@ spring:
     livereload:
       enabled: true
 
+
+
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 10  # 心跳检测检测与续约时间
     lease-expiration-duration-in-seconds: 30 # 测试时将值设置设置小些，保证服务关闭后注册中心能及时踢出服务
     instance-id: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
     prefer-ip-address: true
+    registryFetchIntervalSeconds: 5
   client:
     registryFetchIntervalSeconds: 15
     healthcheck:
@@ -47,6 +50,7 @@ eds-base:
   MaxAutoRetries: 1 #对当前实例的重试次数
   MaxAutoRetriesNextServer: 2 #切换实例的重试次数
   OkToRetryOnAllOperations: false #对所有请求都进行重试默认是false
+  ServerListRefreshInterval: 2000 #ribbon缓存时间
 
 feign:
   hystrix:

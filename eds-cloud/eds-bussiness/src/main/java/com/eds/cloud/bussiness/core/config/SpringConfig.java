@@ -123,11 +123,6 @@ public class SpringConfig   {
      return  converter;
      }
 
-     修改负载均衡规则
-     @Bean
-     public IRule myRule() {
-     return new RoundRobinRule();
-     }
      */
 }
 

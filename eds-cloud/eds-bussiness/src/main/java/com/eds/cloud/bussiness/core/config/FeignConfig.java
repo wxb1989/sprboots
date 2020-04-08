@@ -9,6 +9,7 @@ import com.netflix.hystrix.strategy.executionhook.HystrixCommandExecutionHook;
 import com.netflix.hystrix.strategy.metrics.HystrixMetricsPublisher;
 import com.netflix.hystrix.strategy.properties.HystrixPropertiesStrategy;
 import feign.Contract;
+import feign.Feign;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
@@ -59,7 +60,6 @@ public class FeignConfig {
     public feign.Logger.Level multipartLoggerLevel() {
         return feign.Logger.Level.FULL;
     }
-
 
     /*
 

@@ -10,6 +10,7 @@ import feign.form.spring.SpringFormEncoder;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.openfeign.support.SpringEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -33,7 +34,6 @@ import java.util.List;
 /**
  * spring配置的bean都放在这里
  * @author wangxuebin
- *
    也可以用这种方式做跨域
   extends WebMvcConfigurationSupport
   @Override
@@ -52,44 +52,13 @@ public class SpringConfig   {
     @Bean
     RestTemplate loadBalanced() {
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().set(1, fastJsonHttpMessageConverters());
+        restTemplate.getMessageConverters().set(1, new StringHttpMessageConverter(StandardCharsets.UTF_8));
         return restTemplate;
     }
 
-    /**
-     * 使用LoadBalanced RestTemplate 时可以修改默认的策略
-     * @return
-     */
     @Bean
     public IRule myRule() {
         return new RoundRobinRule();
-    }
-
-    /**
-     * 如果项目里没有用到这个就不用配置
-     * @return
-
-    @Bean
-    RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().set(1, fastJsonHttpMessageConverters());
-        return restTemplate;
-    }
-     */
-
-
-    /**
-     * 使用fastjson做为json的解析器
-     * @return
-     */
-    @Bean
-    public HttpMessageConverter<?> fastJsonHttpMessageConverters() {
-        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
-        FastJsonConfig fastJsonConfig = new FastJsonConfig();
-        //  fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
-        fastConverter.setFastJsonConfig(fastJsonConfig);
-        HttpMessageConverter<?> converter = fastConverter;
-        return  converter;
     }
 
     @Bean
@@ -133,4 +102,34 @@ public class SpringConfig   {
         configSource.registerCorsConfiguration("/**", config);
         return new CorsFilter(configSource);
     }
+
+    /**
+     如果项目里没有用到这个就不用配置
+     @Bean
+     RestTemplate restTemplate() {
+     RestTemplate restTemplate = new RestTemplate();
+     restTemplate.getMessageConverters().set(1, new StringHttpMessageConverter(StandardCharsets.UTF_8));
+     return restTemplate;
+     }
+
+     使用fastjson做为json的解析器 会把为null的给直接去掉这样不太好
+     @Bean
+     public HttpMessageConverter<?> fastJsonHttpMessageConverters() {
+     FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
+     FastJsonConfig fastJsonConfig = new FastJsonConfig();
+     //  fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
+     fastConverter.setFastJsonConfig(fastJsonConfig);
+     HttpMessageConverter<?> converter = fastConverter;
+     return  converter;
+     }
+
+     修改负载均衡规则
+     @Bean
+     public IRule myRule() {
+     return new RoundRobinRule();
+     }
+     */
 }
+
+
+

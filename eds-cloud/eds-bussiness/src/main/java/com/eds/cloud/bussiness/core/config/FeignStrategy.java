@@ -1,4 +1,4 @@
-package com.eds.cloud.base.core.config;
+package com.eds.cloud.bussiness.core.config;
 
 
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
  * reference :org.springframework.cloud.sleuth.instrument.hystrix.SleuthHystrixConcurrencyStrategy
  * read SleuthHystrixConcurrencyStrategy that can get Context in thread
  */
-public class FeignHystrixConcurrencyStrategy extends HystrixConcurrencyStrategy {
+public class FeignStrategy extends HystrixConcurrencyStrategy {
 
     @Override
     public <T> Callable<T> wrapCallable(Callable<T> callable) {

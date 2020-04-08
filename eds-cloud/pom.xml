@@ -86,7 +86,6 @@
         <!--Spring Cloud 服务注册组件-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-<!--            <artifactId>spring-cloud-netflix-eureka-server</artifactId>-->
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
         <!--Spring Cloud 服务调用feign组件-->
@@ -94,7 +93,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
 
         <!-- 数据库链接池-->
         <dependency>
@@ -108,8 +106,18 @@
         </dependency>
 
         <!--   公共配置   -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
 
-        <!--        -->
+        <!-- cooms-lang工具-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <!--  公共配置 end     -->
     </dependencies>
 
     <dependencyManagement>

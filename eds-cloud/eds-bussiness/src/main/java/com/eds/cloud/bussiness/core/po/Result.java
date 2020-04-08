@@ -131,7 +131,7 @@ public final class Result<T> implements Serializable {
     }
 
     public static <T> Result<T> illagalRequest() {
-        return new Result<>(ILLEGAL_REQUEST, "非法请求");
+        return new Result<>(ILLEGAL_REQUEST, "非法请求或者请求服务器熔断");
     }
 
     public static <T> Result<T> invalidSign() {
@@ -153,6 +153,7 @@ public final class Result<T> implements Serializable {
     public static <T> Result<T> systemBusy() {
         return new Result<>(SYSTEM_BUSY, "操作过于频繁，请稍后重试");
     }
+
 
     public T getData() {
         return data;

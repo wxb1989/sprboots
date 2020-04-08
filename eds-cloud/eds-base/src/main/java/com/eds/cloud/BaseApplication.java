@@ -17,7 +17,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
         */
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients
+//@EnableFeignClients
 @ServletComponentScan
 @EnableScheduling
 @EnableAsync

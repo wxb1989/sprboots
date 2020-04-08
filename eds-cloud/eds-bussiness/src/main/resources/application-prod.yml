@@ -68,10 +68,10 @@ hystrix:
       execution:
         circuitBreaker:
           requestVolumeThreshold: 20
-          sleepWindowInMilliseconds: 5000
+          sleepWindowInMilliseconds: 500
         isolation:
           thread:
-            timeoutInMilliseconds: 10000
+            timeoutInMilliseconds: 100
 
 properties:
   filepath: /mnt/program/apache-tomcat-8.5.32-business/webapps/tmpfile

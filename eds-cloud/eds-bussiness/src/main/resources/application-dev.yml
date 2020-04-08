@@ -60,7 +60,7 @@ hystrix:
           sleepWindowInMilliseconds: 5000
         isolation:
           thread:
-            timeoutInMilliseconds: 5000
+            timeoutInMilliseconds: 50
 
 properties:
   filepath: f:\\contracts

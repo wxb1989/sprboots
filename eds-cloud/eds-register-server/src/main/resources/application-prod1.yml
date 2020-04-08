@@ -40,6 +40,7 @@ eureka:
     leaseRenewalIntervalInSeconds: 20
     leaseExpirationDurationInSeconds: 90
     instanceId: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
+    prefer-ip-address: true #以IP地址注册到服务中心，相互注册使用IP地址
   client:
     serviceUrl:
       defaultZone: http://YG0475:4c1a09@10.30.50.49:8090/eureka/

@@ -77,7 +77,6 @@ public class FeignConfig {
         return new SpringFormEncoder(new SpringEncoder(messageConverters));
     }
 
-
     @Bean
     public Contract feignContract() {
         return new feign.Contract.Default();
@@ -107,7 +106,7 @@ public class FeignConfig {
     }
 
 
-    配置Feign的创建方式和重试机制
+    配置Feign的重试机制
     @Scope("prototype")
     @ConditionalOnMissingBean
     @Bean
@@ -115,11 +114,19 @@ public class FeignConfig {
         return Feign.builder().retryer(retryer);
     }
 
+    关闭重试机制
     @ConditionalOnMissingBean
     @Bean
     Retryer feignRetry() {
         return Retryer.NEVER_RETRY;
     }
+
+    开启，建议不要开启，会有接口幂等性的问题：就是多次调用之后接口会重复插入数据
+    @Bean
+    public Retryer feignRetryer() {
+        return new Retryer.Default();
+    }
+
     */
 
 

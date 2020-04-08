@@ -30,16 +30,16 @@ management:
 
 eureka:
   server:
-    enable-self-preservation: true
-    eviction-interval-timer-in-ms: 3000
-    response-cache-update-interval-ms: 10000
-    response-cache-auto-expiration-in-seconds: 180
+    enableSelfPreservation: false
+    evictionIntervalTimerInMs: 3000
+    renewalThresholdUpdateIntervalMs: 3000
+    useReadOnlyResponseCache: false
+    responseCacheAutoExpirationInSeconds: 180
   instance:
     hostname: eureka2
-    lease-expiration-duration-in-seconds: 20
-    lease-renewal-interval-in-seconds: 10
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
-    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 20
+    leaseExpirationDurationInSeconds: 10
+    instanceId: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
   client:
     serviceUrl:
       defaultZone: http://YG0475:4c1a09@10.30.50.146:8090/eureka/

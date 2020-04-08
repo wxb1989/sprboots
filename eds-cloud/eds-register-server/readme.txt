@@ -7,13 +7,13 @@ eureka.server.enableSelfPreservation=false
 ## 主动失效检测间隔,配置成5秒
 eureka.server.evictionIntervalTimerInMs=5000
 
+## 禁用readOnlyCacheMap
+eureka.server. useReadOnlyResponseCache=false
+
 ## 心跳间隔，5秒
 eureka.instance.leaseRenewalIntervalInSeconds=5
 ## 没有心跳的淘汰时间，10秒
 eureka.instance.leaseExpirationDurationInSeconds=10
-
-## 禁用readOnlyCacheMap
-eureka.server. useReadOnlyResponseCache=false
 
 
 服务提供者和clinet配置

@@ -1,0 +1,24 @@
+spring:
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 20  # 心跳检测检测与续约时间
+    lease-expiration-duration-in-seconds: 30 # 测试时将值设置设置小些，保证服务关闭后注册中心能及时踢出服务
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name}
+    prefer-ip-address: true
+  client:
+    registryFetchIntervalSeconds: 15
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://YG0475:4c1a09@localhost:8888/eureka/
+    enabled: true
+
+logging:
+  level:
+    root: info

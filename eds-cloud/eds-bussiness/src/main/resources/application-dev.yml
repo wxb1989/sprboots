@@ -20,7 +20,20 @@ spring:
     livereload:
       enabled: true
 
-
+#sprongboot健康监控
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: ALWAYS
+    logfile:
+      enabled: true
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 eureka:
   instance:

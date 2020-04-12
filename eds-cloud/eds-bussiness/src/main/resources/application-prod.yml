@@ -31,6 +31,7 @@ eureka:
     serviceUrl:
       defaultZone: http://YG0475:4c1a09@10.30.50.146:8090/eureka/
 
+#健康注册监控
 management:
   endpoint:
     health:
@@ -39,7 +40,7 @@ management:
     logfile:
       enabled: true
     shutdown:
-      enabled: false
+      enabled: true
   endpoints:
     web:
       exposure:

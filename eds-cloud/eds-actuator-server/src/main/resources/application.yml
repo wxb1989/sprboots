@@ -1,10 +1,11 @@
+server:
+  port: 8999
+
 spring:
   application:
-    name: eds-base
+    name: eds-actuator-server
   profiles:
-    active: dev
+      active: dev
   main:
     allow-bean-definition-overriding: true
 
-server:
-  port: 28080
